@@ -12,8 +12,10 @@ public class Main {
 
     static void dfs(int currentNode) {
         visited[currentNode] = true;
-        for (int i = 0; i < adj.length; i++) {
+        for (int i = 0; i < adj[currentNode].length; i++) {
+
             if (visited[adj[currentNode][i]] == false) {
+                System.out.println("adj[currentNode][i] - " + adj[currentNode][i]);
                 dfs(adj[currentNode][i]);
             }
         }
@@ -36,10 +38,10 @@ public class Main {
             for (int i = 0; i < edges; ++i) {
                 String line = stdin.readLine();
                 String[] e = line.split(" ");
-//                adj[Integer.parseInt(e[0])][Integer.parseInt(e[1])] = Integer.parseInt(e[0]);
-//                adj[Integer.parseInt(e[1])][Integer.parseInt(e[0])] = Integer.parseInt(e[1]);
-                adj[Integer.parseInt(e[0]) - 1][Integer.parseInt(e[1]) - 1] = 1;
-                adj[Integer.parseInt(e[1]) - 1][Integer.parseInt(e[0]) - 1] = 1;
+                adj[Integer.parseInt(e[0]) - 1][Integer.parseInt(e[1]) - 1] = Integer.parseInt(e[0]);
+                adj[Integer.parseInt(e[1]) - 1][Integer.parseInt(e[0]) - 1] = Integer.parseInt(e[1]);
+                //adj[Integer.parseInt(e[0]) - 1][Integer.parseInt(e[1]) - 1] = 1;
+                //adj[Integer.parseInt(e[1]) - 1][Integer.parseInt(e[0]) - 1] = 1;
             }
 
             initialize();
